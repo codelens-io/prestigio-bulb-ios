@@ -112,23 +112,26 @@ public class BulbControl {
         }
     }
     
-    func send(commands: [Data]) -> Bool {
-        var success:Bool = true
+    func send(commands: [Data], identifier:Any? = nil) {
         commands.forEach { command in
-            bulbWriteCharacteristics?.write(data: command)
-            sleep(2)
+            self.send(command: command, identifier: identifier)
         }
-        return success
     }
     
-    func send(command: Data) -> Bool {
-        var success:Bool = true
-        bulbWriteCharacteristics?.write(data: command).onFailure { error in
-            success = false
+    func send(command: Data, identifier:Any? = nil) {
+        let resultFuture = (bulbWriteCharacteristics?.write(data: command))!
+        resultFuture.onFailure { e in
+            self.delegate?.didSendCommandFailed(identifier: identifier as Any, commandHex: command.hexStringValue(), error: e)
         }
-        return success
+        resultFuture.onSuccess {
+            self.delegate?.didSendCommand(identifier: identifier as Any, commandHex: command.hexStringValue())
+        }
     }
     
+}
+
+enum BulbCommandKey {
+    case initializers
 }
 
 struct BulbControlCodes {

@@ -10,13 +10,12 @@ import BlueCapKit
 
 protocol BulbControlDelegate {
     
-    func didStateChanged(canScan: Bool)
-    
+    func willBulbFound()
     func didBulbFound()
     func didBulbNotFound()
     
-    func didConnect()
-    func didNotConnect()
+    func didSendCommand(identifier:Any?, commandHex:String)
+    func didSendCommandFailed(identifier:Any?, commandHex:String, error:Error)
     
 }
 
