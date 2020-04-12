@@ -3,19 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4DEAF25FE33E18F7D70DCAD0 /* Pods_prestigio_bulb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBA095E596D6DE835413E63 /* Pods_prestigio_bulb.framework */; };
 		AD69F7112441C3CC00998E4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD69F7102441C3CC00998E4D /* AppDelegate.swift */; };
 		AD69F7132441C3CC00998E4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD69F7122441C3CC00998E4D /* SceneDelegate.swift */; };
 		AD69F7152441C3CC00998E4D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD69F7142441C3CC00998E4D /* ContentView.swift */; };
 		AD69F7172441C3CE00998E4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD69F7162441C3CE00998E4D /* Assets.xcassets */; };
 		AD69F71A2441C3CE00998E4D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD69F7192441C3CE00998E4D /* Preview Assets.xcassets */; };
 		AD69F71D2441C3CE00998E4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD69F71B2441C3CE00998E4D /* LaunchScreen.storyboard */; };
+		AD78C0FB24421EAB0077285F /* BulbControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD78C0FA24421EAB0077285F /* BulbControl.swift */; };
+		AD78C0FD24421FAA0077285F /* BulbControlDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD78C0FC24421FAA0077285F /* BulbControlDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8BBA095E596D6DE835413E63 /* Pods_prestigio_bulb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_prestigio_bulb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD69F70D2441C3CC00998E4D /* prestigio-bulb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "prestigio-bulb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD69F7102441C3CC00998E4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD69F7122441C3CC00998E4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +28,10 @@
 		AD69F7192441C3CE00998E4D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AD69F71C2441C3CE00998E4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD69F71E2441C3CE00998E4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD78C0FA24421EAB0077285F /* BulbControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbControl.swift; sourceTree = "<group>"; };
+		AD78C0FC24421FAA0077285F /* BulbControlDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbControlDelegate.swift; sourceTree = "<group>"; };
+		D11841CD011B9C079BB3A6B0 /* Pods-prestigio-bulb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prestigio-bulb.release.xcconfig"; path = "Target Support Files/Pods-prestigio-bulb/Pods-prestigio-bulb.release.xcconfig"; sourceTree = "<group>"; };
+		EA83A2F0BAFEA7A1F25FD691 /* Pods-prestigio-bulb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prestigio-bulb.debug.xcconfig"; path = "Target Support Files/Pods-prestigio-bulb/Pods-prestigio-bulb.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DEAF25FE33E18F7D70DCAD0 /* Pods_prestigio_bulb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +51,8 @@
 			children = (
 				AD69F70F2441C3CC00998E4D /* prestigio-bulb */,
 				AD69F70E2441C3CC00998E4D /* Products */,
+				CDFD6DCC0CA75CD3DD804A30 /* Pods */,
+				F0447DBFB187A387FDCB9C02 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +67,8 @@
 		AD69F70F2441C3CC00998E4D /* prestigio-bulb */ = {
 			isa = PBXGroup;
 			children = (
+				AD78C0FA24421EAB0077285F /* BulbControl.swift */,
+				AD78C0FC24421FAA0077285F /* BulbControlDelegate.swift */,
 				AD69F7102441C3CC00998E4D /* AppDelegate.swift */,
 				AD69F7122441C3CC00998E4D /* SceneDelegate.swift */,
 				AD69F7142441C3CC00998E4D /* ContentView.swift */,
@@ -75,6 +88,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		CDFD6DCC0CA75CD3DD804A30 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA83A2F0BAFEA7A1F25FD691 /* Pods-prestigio-bulb.debug.xcconfig */,
+				D11841CD011B9C079BB3A6B0 /* Pods-prestigio-bulb.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F0447DBFB187A387FDCB9C02 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8BBA095E596D6DE835413E63 /* Pods_prestigio_bulb.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -82,9 +112,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD69F7212441C3CE00998E4D /* Build configuration list for PBXNativeTarget "prestigio-bulb" */;
 			buildPhases = (
+				7F810710F924B24EA2938965 /* [CP] Check Pods Manifest.lock */,
 				AD69F7092441C3CC00998E4D /* Sources */,
 				AD69F70A2441C3CC00998E4D /* Frameworks */,
 				AD69F70B2441C3CC00998E4D /* Resources */,
+				50513B04AF67C438E56222B9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -141,11 +173,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		50513B04AF67C438E56222B9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-prestigio-bulb/Pods-prestigio-bulb-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-prestigio-bulb/Pods-prestigio-bulb-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-prestigio-bulb/Pods-prestigio-bulb-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F810710F924B24EA2938965 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-prestigio-bulb-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AD69F7092441C3CC00998E4D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD78C0FD24421FAA0077285F /* BulbControlDelegate.swift in Sources */,
+				AD78C0FB24421EAB0077285F /* BulbControl.swift in Sources */,
 				AD69F7112441C3CC00998E4D /* AppDelegate.swift in Sources */,
 				AD69F7132441C3CC00998E4D /* SceneDelegate.swift in Sources */,
 				AD69F7152441C3CC00998E4D /* ContentView.swift in Sources */,
@@ -216,7 +292,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +346,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -282,6 +358,7 @@
 		};
 		AD69F7222441C3CE00998E4D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA83A2F0BAFEA7A1F25FD691 /* Pods-prestigio-bulb.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +379,7 @@
 		};
 		AD69F7232441C3CE00998E4D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D11841CD011B9C079BB3A6B0 /* Pods-prestigio-bulb.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
