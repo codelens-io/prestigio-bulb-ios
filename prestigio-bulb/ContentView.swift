@@ -13,20 +13,37 @@ struct ContentView: View, BulbControlDelegate {
     
     private let bulbControl = BulbControl()
     
-    @State private var pushed:Bool = false
-    @State private var stateLabel:String = "Unknown"
-    @State private var log:Array<String> = Array()
+    private var colors: [UIColor] = {
+        // 1
+        let hueValues = Array(0...359)
+        // 2
+        return hueValues.map {
+            UIColor(hue: CGFloat($0) / 359.0 ,
+                    saturation: 1.0,
+                    brightness: 1.0,
+                    alpha: 1.0)
+        }
+    }()
     
-    private var endText:Text = Text("end")
+    @Environment(\.colorScheme) private var colorScheme: ColorScheme
+    @State private var stateLabel:String = "Searching..."
+    @State private var log:Array<String> = Array()
+    @State private var selectedColor:UIColor = UIColor.white
     
     var body: some View {
         VStack(spacing: 10) {
             Text("Prestigio Light bulb")
+                .font(Font.system(size: 24).bold())
+                .frame(maxWidth: .infinity)
+            
+            Divider()
             
             HStack(spacing: 10) {
                 Text("State:")
                 Text(stateLabel)
+                Spacer()
             }
+            .padding(.horizontal, 10)
             
             HStack(spacing: 10) {
                 Button(action: {
@@ -35,7 +52,7 @@ struct ContentView: View, BulbControlDelegate {
                     Text("Turn ON")
                         .frame(width: 90)
                         .padding(.all, 10)
-                        .border(Color.black)
+                        .border(borderColor())
                         
                 })
                 
@@ -45,7 +62,7 @@ struct ContentView: View, BulbControlDelegate {
                     Text("Turn OFF")
                         .frame(width: 90)
                         .padding(.all, 10)
-                        .border(Color.black)
+                        .border(borderColor())
                 })
                 
                 Button(action: {
@@ -54,18 +71,44 @@ struct ContentView: View, BulbControlDelegate {
                     Text("Default")
                         .frame(width: 90)
                         .padding(.all, 10)
-                        .border(Color.black)
+                        .border(borderColor())
                         .background(Color(red: 1.0, green: 0.8, blue: 0.7))
                 })
             }
+            .padding(.top, 20)
             
             Spacer().frame(height: 30)
             
             Button(action: {
-                self.pushed = true
+                self.bulbControl.send(command: BulbControlCodes.color(colr: self.selectedColor))
             }, label: {
-                Text("Test")
+                Text("Selected color")
+                    .frame(width: 200)
+                    .padding(.all, 10)
+                    .border(borderColor())
+                    .background(Color(self.selectedColor))
             })
+            
+            Spacer().frame(height: 30)
+            
+            LinearGradient(gradient: Gradient(colors: colors.map { uiColor -> Color in Color(uiColor) }), startPoint: .leading, endPoint: .trailing)
+                .frame(width: 200, height: 10)
+                .cornerRadius(5)
+                .shadow(radius: 8)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 5).stroke(Color.white, lineWidth: 2.0)
+                )
+                .gesture(
+                    DragGesture().onChanged({ (value) in
+                        print("dragOffset: \(value.translation), startLocation: \(value.startLocation.x)")
+                        
+                        var offset = value.startLocation.x + value.translation.width
+                        offset = offset < 0 ? 0 : offset
+                        offset = offset > 200 ? 200 : offset
+                        
+                        self.selectedColor = UIColor.init(hue: offset / 200, saturation: 1.0, brightness: 1.0, alpha: 1.0)
+                    })
+                )
                 
             List {
                 ForEach(log, id: \.self) { logLine in
@@ -75,9 +118,6 @@ struct ContentView: View, BulbControlDelegate {
             
             Spacer()
             
-            endText
-                .padding(.bottom, 10)
-                .foregroundColor(pushed ? .red : .black)
         }.onAppear {
             self.bulbControl.setDelegate(delegate: self)
             do {
@@ -86,6 +126,10 @@ struct ContentView: View, BulbControlDelegate {
                 self.stateLabel = "Error"
             }
         }
+    }
+    
+    func borderColor() -> Color {
+        return colorScheme == .light ? Color.black : Color.white
     }
     
     func didStateChanged(canScan: Bool) {
@@ -97,10 +141,12 @@ struct ContentView: View, BulbControlDelegate {
     }
 
     func didBulbFound() {
-        log.append("\(self.bulbControl.bulbPeripheral?.name ?? "-") \(self.bulbControl.bulbPeripheral?.identifier.uuidString ?? "-")")
-        
+//        log.append("\(self.bulbControl.bulbPeripheral?.name ?? "-") \(self.bulbControl.bulbPeripheral?.identifier.uuidString ?? "-")")
+//
+        self.stateLabel = "Initializing..."
         self.bulbControl.send(commands: BulbControlCodes.initCommands)
-        log.append("Initialized")
+//        log.append("Initialized")
+        self.stateLabel = "Connected"
     }
     
     func didConnect() {
